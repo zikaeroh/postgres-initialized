@@ -18,5 +18,5 @@ until docker exec $CONTAINER pg_isready -U postgres > /dev/null; do
 done
 
 echo "Checking that server is initialized"
-docker run --rm -it --link $CONTAINER:postgres -e PGPASSWORD=mysecretpassword $IMAGE psql -h postgres -U postgres -c "SELECT version(), current_user"
+docker run --rm --link $CONTAINER:postgres -e PGPASSWORD=mysecretpassword $IMAGE psql -h postgres -U postgres -c "SELECT version(), current_user"
 exit $?
