@@ -37,14 +37,3 @@ jobs:
             ./build.sh $IMAGE
             docker push $IMAGE
           done
-
-  keepalive-job:
-    name: Keepalive Workflow
-    runs-on: ubuntu-latest
-    permissions:
-      actions: write
-    steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - uses: gautamkrishnar/keepalive-workflow@306efe4fc63923e36571682b4f4b3e3eee8b6625 # 1.2.6
-        with:
-          use_api: true
